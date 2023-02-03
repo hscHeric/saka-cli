@@ -1,3 +1,5 @@
+#define __STDC_WANT_LIB_EXT2__ 1 // Defina que você deseja extensões TR 24731-2:2010 que adicionam funções de manipulação de cadeia de caracteres e manipulação de memória.
+
 #include "../include/systeminfo.h"
 #include <stdio.h>
 #include <string.h>
@@ -19,7 +21,7 @@ char *getOsName()
 {
 #ifdef _WIN32
 
-    char osName[128];
+    char osName[512];
     if (IsWindows10OrGreater())
     {
         sprintf(osName, "Windows 10 %d.%d.%d",
@@ -56,11 +58,11 @@ char *getOsName()
 
     struct utsname osInfo;
     uname(&osInfo);
-    char osName[128];
-    sprintf(osName, "%s %s", osInfo.sysname, osInfo.release);
-    char *osNamePointer = (char *)malloc(sizeof(osName));
-    strcpy(osNamePointer, osName);
-    return osNamePointer;
-
+    char *osNamePointer;
+    asprintf(&osNamePointer, "%s %s", osInfo.sysname, osInfo.release);
+    char *returnValue = strdup(osNamePointer);
+    free(osNamePointer);
+    return returnValue;
+    
 #endif
 }

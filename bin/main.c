@@ -1,9 +1,10 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "../include/systeminfo.h"
 
-#include <stdio.h>
 int main(int argc, char *argv[])
 {
     char *osName = getOsName();
-
-    printf("OS Name: %s", osName);
+    printf("%s\n", osName);
+    free(osName);
 }
