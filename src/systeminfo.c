@@ -63,6 +63,6 @@ char *getOsName()
     char *returnValue = strdup(osNamePointer);
     free(osNamePointer);
     return returnValue;
-    
+
 #endif
 }
