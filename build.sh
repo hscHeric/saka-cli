@@ -7,11 +7,11 @@ if [ "$1" = "-c" ]; then
     rm -rf CMakeFiles
     rm -rf cmake_install.cmake
     rm -rf Makefile
+    rm -rf lib
     if [ -e "./bin/main" ]; then
         rm ./bin/main
     fi
     
-    rm ./lib/*
 else
     # Executa o comando cmake
     cmake .

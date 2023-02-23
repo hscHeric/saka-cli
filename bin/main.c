@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "../include/systeminfo.h"
+#include "../include/OsInfo.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,10 +11,20 @@ int main(int argc, char *argv[])
         switch (opt)
         {
         case 's':
+
             char *osName = getOsName();
-            printf("%s\n", osName);
+            printf("Name: %s\n", osName);
             free(osName);
+
+            char *osKernel = getOsKernel();
+            printf("Kernel: %s\n", osKernel);
+            free(osKernel);
+
+            char *osArch = getOsArch();
+            printf("Arch: %s\n", osArch);
+            free(osArch);
             break;
+
         default:
             break;
         }
