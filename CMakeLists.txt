@@ -12,9 +12,14 @@ set(SOURCE_FILES
     src/systeminfo.c
 )
 
+# if (CMAKE_SYSTEM_NAME MATCHES "Windows")
+#     # Coloque aqui as configurações para a plataforma Windows
+# else ()
+#     # Coloque aqui as configurações para outras plataformas
+# endif()
+
 add_library(systeminfo SHARED ${SOURCE_FILES})
 
 add_executable(main bin/main.c)
 
 target_link_libraries(main systeminfo)
-
