@@ -1,17 +1,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "../include/OsInfo.h"
+#include "../include/osInfo.h"
+#include "../include/hardwareInfo.h"
 
 int main(int argc, char *argv[])
 {
     int opt;
-    while ((opt = getopt(argc, argv, "s")) != -1)
+    while ((opt = getopt(argc, argv, "sm")) != -1)
     {
         switch (opt)
         {
         case 's':
-
+            //Retorna infomações do sistema operacional
             char *osName = getOsName();
             printf("Name: %s\n", osName);
             free(osName);
@@ -23,6 +24,16 @@ int main(int argc, char *argv[])
             char *osArch = getOsArch();
             printf("Arch: %s\n", osArch);
             free(osArch);
+            break;
+        case 'm':
+            //Retorna informações do hardware
+            char *processorInfo = getProcessorInfo();
+            printf("Processor: %s\n", processorInfo);
+            free(processorInfo);
+
+            char *ramInfo = getRamInfo();
+            printf("RAM: %s\n", ramInfo);
+            free(ramInfo);
             break;
 
         default:

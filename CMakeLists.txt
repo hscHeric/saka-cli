@@ -9,17 +9,13 @@ project(hscSystemInfo C)
 include_directories(include)
 
 set(SOURCE_FILES
-    src/OsInfo.c
+    src/osInfo.c
+    src/hardwareInfo.c
 )
 
-# if (CMAKE_SYSTEM_NAME MATCHES "Windows")
-#     # Coloque aqui as configurações para a plataforma Windows
-# else ()
-#     # Coloque aqui as configurações para outras plataformas
-# endif()
-
-add_library(OsInfo SHARED ${SOURCE_FILES})
+add_library(osInfo SHARED ${SOURCE_FILES})
+add_library(hardwareInfo SHARED ${SOURCE_FILES})
 
 add_executable(main bin/main.c)
 
-target_link_libraries(main OsInfo)
+target_link_libraries(main osInfo hardwareInfo)

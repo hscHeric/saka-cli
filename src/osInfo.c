@@ -1,6 +1,6 @@
 #define __STDC_WANT_LIB_EXT2__ 1 // Define que você deseja extensões TR 24731-2:2010 que adicionam funções de manipulação de cadeia de caracteres e manipulação de memória.
 
-#include "../include/OsInfo.h"
+#include "../include/osInfo.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
