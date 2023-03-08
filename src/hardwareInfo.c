@@ -52,7 +52,7 @@ char* getRamInfo()
             sscanf(line, "MemTotal: %llu kB", &totalMemory);
             totalMemory /= 1024;
             totalMemory /= 1024;
-            sprintf(ramInfo, "RAM: %llu GB\n", totalMemory);
+            sprintf(ramInfo, " %llu GB\n", totalMemory);
             break;
         }
     }

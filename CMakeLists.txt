@@ -16,6 +16,7 @@ set(SOURCE_FILES
 add_library(osInfo SHARED ${SOURCE_FILES})
 add_library(hardwareInfo SHARED ${SOURCE_FILES})
 
-add_executable(main bin/main.c)
+add_executable(saka bin/main.c)
+set_target_properties(saka PROPERTIES OUTPUT_NAME "saka")
 
-target_link_libraries(main osInfo hardwareInfo)
+target_link_libraries(saka osInfo hardwareInfo)

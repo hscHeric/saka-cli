@@ -11,6 +11,9 @@ if [ "$1" = "-c" ]; then
     if [ -e "./bin/main" ]; then
         rm ./bin/main
     fi
+    if [ -e "./bin/saka" ]; then
+        rm ./bin/saka
+    fi
     
 else
     # Executa o comando cmake
